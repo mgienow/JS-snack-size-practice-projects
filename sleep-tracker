@@ -1,0 +1,58 @@
+const getSleepHours = day =>{
+
+  switch (day){
+    case 'Monday':
+      return 8;
+      break;
+    case 'Tuesday':
+      return 7.5;
+      break;
+    case 'Wednesday':
+      return 7;
+      break;
+    case 'Thursday':
+      return 6.5;
+      break;
+    case 'Friday':
+      return 6;
+      break;
+    case 'Saturday':
+      return 5;
+      break;
+    case 'Sunday':
+      return 9;
+      break;
+    default:
+    console.log('Please enter number of hours sleep')
+    break;
+    }
+} 
+
+const getActualSleepHours = () => {
+return getSleepHours('Monday') + getSleepHours('Tuesday') + getSleepHours('Wednesday') + getSleepHours('Thursday') +
+  getSleepHours('Friday') + getSleepHours('Saturday') +
+  getSleepHours('Sunday')  
+  //console.log(totalSleep)
+}
+
+getActualSleepHours();
+const getIdealSleepHours = () => {
+  const idealHours = 8
+  return idealHours * 7
+}
+//console.log(getActualSleepHours())
+const calculateSleepDebt = () =>{
+  let actualSleepHours = getActualSleepHours()
+  let idealSleepHours = getIdealSleepHours()
+  let sleepGap = Math.abs(idealSleepHours - actualSleepHours)
+  if (actualSleepHours === idealSleepHours){
+    console.log('You got the perfect amount of sleep')
+  } else if(actualSleepHours>idealSleepHours) {
+    console.log(`You slept too much. You are over by ${sleepGap} hours`)
+  } else if(actualSleepHours<idealSleepHours){
+    console.log(`Get some rest! You are under by ${sleepGap} hours.`)
+  } else {
+    console.log('Zzzzzzzzz')
+  }
+}
+calculateSleepDebt()
